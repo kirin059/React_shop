@@ -2,9 +2,10 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background {
+  background-image: url(/src/img/background.jpg);
+  background-position: center;
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: no-preference) {
