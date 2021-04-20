@@ -4,6 +4,8 @@ import { Navbar, Nav, NavDropdown, Button, Jumbotron } from 'react-bootstrap';
 import Data from './data.js';
 import Product from './component/Product'
 
+import { Link, Route, Switch } from 'react-router-dom';
+
 function App() {
 
   let [shoes, setShoes] = useState(Data);
@@ -29,24 +31,26 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
 
-      {/* jumbotron bootstrap */}
-      <Jumbotron className="background">
-        <h1>20% Season OFF</h1>
-        <p>
-          This is a simple hero unit, a simple jumbotron-style component for calling
-          extra attention to featured content or information.
-        </p>
-        <p>
-          <Button variant="primary">Learn more</Button>
-        </p>
-      </Jumbotron>
 
-      {/* 상품표기(3등분) */}
-      <div className="container">
-        <div className="row">  {/* 총 12개의 column(기본)으로 나누겠다는 bootstrap 문법 */}
+      <Route exact path="/">
+        {/* jumbotron bootstrap */}
+        <Jumbotron className="background">
+          <h1>20% Season OFF</h1>
+          <p>
+            This is a simple hero unit, a simple jumbotron-style component for calling
+            extra attention to featured content or information.
+        </p>
+          <p>
+            <Button variant="primary">Learn more</Button>
+          </p>
+        </Jumbotron>
 
-          {/* col-4 : 4개의 row로 나누겠다는 bootstrap 문법  / col-md-4 : 모바일에서 세로 1열 정렬 되게 만드는 bootstrap 문법 */}
-          {/* <div className="col-md-4"> 
+        {/* 상품표기(3등분) */}
+        <div className="container">
+          <div className="row">  {/* 총 12개의 column(기본)으로 나누겠다는 bootstrap 문법 */}
+
+            {/* col-4 : 4개의 row로 나누겠다는 bootstrap 문법  / col-md-4 : 모바일에서 세로 1열 정렬 되게 만드는 bootstrap 문법 */}
+            {/* <div className="col-md-4"> 
             <img src="http://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
             <h4> {shoes[0].title} </h4>
             <p> {shoes[0].content} & {shoes[0].price} </p>
@@ -64,16 +68,34 @@ function App() {
             <p> {shoes[2].content} &  {shoes[2].price} </p>
           </div> */}
 
-          {
-            shoes.map((a, i) => {
-              return (
-                <Product shoes={shoes[i]} i={i} />
-              )
-            })
-          }
-
+            {
+              shoes.map((a, i) => {
+                return (
+                  <Product shoes={shoes[i]} i={i} />
+                )
+              })
+            }
+          </div>
         </div>
-      </div>
+      </Route>
+
+
+      <Route exact path="/detail">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+            </div>
+            <div className="col-md-6 mt-4">
+              <h4 className="pt-5">상품명</h4>
+              <p>상품설명</p>
+              <p>120000원</p>
+              <button className="btn btn-danger">주문하기</button>
+            </div>
+          </div>
+        </div>
+      </Route>
+
 
     </div>
   );
