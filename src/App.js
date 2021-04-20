@@ -84,8 +84,8 @@ function App() {
         </Route>
 
 
-        <Route exact path="/detail">
-          <Detail />
+        <Route exact path="/detail/:id">
+          <Detail shoes={shoes} />
         </Route>
 
         <Route path="/:id">  {/* "/모든문자" 라는 경로를 의미 */}
