@@ -64,9 +64,13 @@ function App() {
             <p> {shoes[2].content} &  {shoes[2].price} </p>
           </div> */}
 
-          <Product shoes={shoes[0]} />
-          <Product shoes={shoes[1]} />
-          <Product shoes={shoes[2]} />
+          {
+            shoes.map((a, i) => {
+              return (
+                <Product shoes={shoes[i]} i={i} />
+              )
+            })
+          }
 
         </div>
       </div>
