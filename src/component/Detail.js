@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
+import styled from 'styled-components';
+
+import './Detail.scss';
+
+let 박스 = styled.div`
+    padding: 20px;
+`
+let 제목 = styled.h4`
+    font-size: 25px;
+    color: ${props => props.color};
+`
 
 const Detail = (props) => {
 
@@ -16,9 +27,16 @@ const Detail = (props) => {
     return (
         <div className="detail">
             <div className="container">
+                {/* styled-components로 styling */}
+                <박스>
+                    <제목 color='#000'>Detail </제목>
+                </박스>
+                <div className="my-alert-yellow">
+                    <p>재고가 얼마 남지 않았습니다</p>
+                </div>
                 <div className="row">
                     <div className="col-md-6">
-                        <img src={'https://codingapple1.github.io/shop/shoes' + (productsId + 1) + '.jpg'} width="100%" />
+                        <img src={'https://codingapple1.github.io/shop/shoes1.jpg'} width="100%" />
                     </div>
                     <div className="col-md-6 mt-4">
                         <h4 className="pt-5"> {productsId.title} </h4>
