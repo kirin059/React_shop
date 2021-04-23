@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import styled from 'styled-components';
 
@@ -13,6 +13,13 @@ let 제목 = styled.h4`
 `
 
 const Detail = (props) => {
+    let [alert, setAlert] = useState(true)
+    let [inputData, setInputData] = useState('');
+
+    useEffect(() => {
+        setTimeout(() => { setAlert(false) }, 2000);
+
+    }, [alert])  // state값을 넣을 수 있다. 일단 코드실행 후, alert가 실행되면 멈추라는 뜻(일종의 조건문)
 
     // useHistory : 방문 기록이 전부 담겨있는 Object (=hook)
     let history = useHistory;
@@ -31,9 +38,17 @@ const Detail = (props) => {
                 <박스>
                     <제목 color='#000'>Detail </제목>
                 </박스>
-                <div className="my-alert-yellow">
-                    <p>재고가 얼마 남지 않았습니다</p>
-                </div>
+
+                <input onChange={(e) => { setInputData(e.target.value) }} />
+
+                {
+                    alert === true
+                        ? (<div className="my-alert-yellow">
+                            <p> 재고가 얼마 남지 않았습니다 </p>
+                        </div>)
+                        : null
+                }
+
                 <div className="row">
                     <div className="col-md-6">
                         <img src={'https://codingapple1.github.io/shop/shoes1.jpg'} width="100%" />
