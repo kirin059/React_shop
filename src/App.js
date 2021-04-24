@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import './App.css';
 import { Navbar, Nav, NavDropdown, Button, Jumbotron } from 'react-bootstrap';
+import { Link, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
 import Data from './data.js';
 import Product from './component/Product';
 import Detail from './component/Detail';
-
-import { Link, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
+import './App.scss';
 
 function App() {
 
