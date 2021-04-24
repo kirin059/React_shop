@@ -17,9 +17,9 @@ const Detail = (props) => {
     let [inputData, setInputData] = useState('');
 
     useEffect(() => {
-        setTimeout(() => { setAlert(false) }, 2000);
-
-    }, [alert])  // state값을 넣을 수 있다. 일단 코드실행 후, alert가 실행되면 멈추라는 뜻(일종의 조건문)
+        let timer = setTimeout(() => { setAlert(false) }, 2000);
+        return () => { clearTimeout(timer) }  // 타이머는 제거해줘야 나중에 버그가 안생긴다
+    }, [alert])  // state값을 넣을 수 있다. 일단 코드실행 후, alert가 실행되면 멈추라는 뜻(일종의 조건문) 페이지가 재렌더링될때마다 실행되는것을 방지
 
     // useHistory : 방문 기록이 전부 담겨있는 Object (=hook)
     let history = useHistory;
@@ -39,7 +39,7 @@ const Detail = (props) => {
                     <제목 color='#000'>Detail </제목>
                 </박스>
 
-                <input onChange={(e) => { setInputData(e.target.value) }} />
+                {/* <input onChange={(e) => { setInputData(e.target.value) }} /> */}
 
                 {
                     alert === true

@@ -7,6 +7,7 @@ import Product from './component/Product';
 import Detail from './component/Detail';
 
 import { Link, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/detail">Detail</Nav.Link>
+            <Nav.Link as={Link} to="/detail/:id">Detail</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -33,10 +34,9 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
 
-      <Switch>  {/* Switch 안에는 모든 Route가 담겨있어야 한다(화면 내 router들이 switch되도록) */}
+      <Switch>  
 
         <Route exact path="/">
-          {/* jumbotron bootstrap */}
           <Jumbotron className="background">
             <h1>20% Season OFF</h1>
             <p>
@@ -47,29 +47,8 @@ function App() {
             </p>
           </Jumbotron>
 
-          {/* 상품표기(3등분) */}
           <div className="container">
-            <div className="row">  {/* 총 12개의 column(기본)으로 나누겠다는 bootstrap 문법 */}
-
-              {/* col-4 : 4개의 row로 나누겠다는 bootstrap 문법  / col-md-4 : 모바일에서 세로 1열 정렬 되게 만드는 bootstrap 문법 */}
-              {/* <div className="col-md-4"> 
-            <img src="http://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-            <h4> {shoes[0].title} </h4>
-            <p> {shoes[0].content} & {shoes[0].price} </p>
-          </div>
-
-          <div className="col-md-4">
-            <img src="http://codingapple1.github.io/shop/shoes2.jpg" width="100%" />
-            <h4> {shoes[1].title} </h4>
-            <p> {shoes[1].content} &  {shoes[1].price} </p>
-          </div>
-
-          <div className="col-md-4">
-            <img src="http://codingapple1.github.io/shop/shoes3.jpg" width="100%" />
-            <h4> {shoes[2].title} </h4>
-            <p> {shoes[2].content} &  {shoes[2].price} </p>
-          </div> */}
-
+            <div className="row">  
               {
                 shoes.map((a, i) => {
                   return (
@@ -79,20 +58,30 @@ function App() {
               }
 
             </div>
+
+            <button className="btn btn-primary" onClick={() => {
+              axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                  console.log(result.data)
+                  setShoes([...shoes, ...result.data])
+                })
+                .catch(() => {
+                  console.log('failure')
+                })
+
+            }}>더보기</button>
           </div>
-
         </Route>
-
 
         <Route exact path="/detail/:id">
           <Detail shoes={shoes} />
         </Route>
 
-        <Route path="/:id">  {/* "/모든문자" 라는 경로를 의미 */}
+        <Route path="/:id"> 
           <div>아무거나 적었을 때 이거 보여주세요</div>
         </Route>
 
-      </Switch>
+      </Switch >
     </div >
   );
 }
