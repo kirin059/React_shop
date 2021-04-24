@@ -14,14 +14,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* nav bootstrap */}
+
       <Navbar bg="light" expand="lg" >
-        <Navbar.Brand href="#home">Shoe Shop</Navbar.Brand>
+        <Navbar.Brand href="#home" className="brand">Shoe Shop 🩰</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/detail/:id">Detail</Nav.Link>
+            <Nav.Link as={Link} to="/detail/0">Detail</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -72,12 +72,12 @@ function App() {
           </div>
         </Route>
 
-        <Route exact path="/detail/:id">
+        <Route path="/detail/:id">
           <Detail shoes={shoes} />
         </Route>
 
         <Route path="/:id"> 
-          <div>아무거나 적었을 때 이거 보여주세요</div>
+          <div></div>
         </Route>
 
       </Switch >

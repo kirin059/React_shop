@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import styled from 'styled-components';
 
 import './Detail.scss';
 
-let box = styled.div`
-    padding: 20px;
-`
-let title = styled.h4`
-    font-size: 25px;
-    color: ${props => props.color};
-`
 
 const Detail = (props) => {
     let [alert, setAlert] = useState(true)
@@ -29,13 +21,8 @@ const Detail = (props) => {
     })
 
     return (
-        <div className="detail">
             <div className="container">
-                <box>
-                    <title color='#000'>Detail </title>
-                </box>
-
-
+                <h4> Detail </h4>
                 {
                     alert === true
                         ? (<div className="my-alert-yellow">
@@ -52,12 +39,11 @@ const Detail = (props) => {
                         <h4 className="pt-5"> {productsId.title} </h4>
                         <p> {productsId.content} </p>
                         <p>{productsId.price}0원</p>
-                        <button className="btn btn-danger">주문하기</button>
-                        <button className="btn btn-danger" onClick={() => { history.goBack(); }}>Back</button>
+                        <button className="btn btn-danger order">주문하기</button>
+                        <button className="btn btn-danger back" onClick={() => { history.push('/') }}>Back</button>
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

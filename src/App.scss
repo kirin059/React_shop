@@ -1,11 +1,20 @@
 .App {
   text-align: center;
+  .brand {
+    padding: 10px 20px;
+    font-size: 35px;
+    font-weight: 800;
+  }
+  .background {
+    background-image: url(./img/background.jpg);
+    background-position: center;
+    color: #fff;
+  }
 
+  .btn-primary {
+    margin: 50px 0;
+  }
 }
 
-.background {
-  background-image: url(./img/background.jpg);
-  background-position: center;
-  color: #fff;
-}
+
 
