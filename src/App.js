@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Navbar, Nav, NavDropdown, Button, Jumbotron } from 'react-bootstrap';
 import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
@@ -8,9 +8,12 @@ import Product from './component/Product';
 import Detail from './component/Detail';
 import './App.scss';
 
+export let lestContext = React.createContext();
+
 function App() {
 
   let [shoes, setShoes] = useState(Data);
+  let [lest, setLest] = useState([10, 11, 12])
 
   return (
     <div className="App">
@@ -47,6 +50,9 @@ function App() {
           </Jumbotron>
 
           <div className="container">
+
+            <lestContext.Provider value={lest}>
+
             <div className="row">  
               {
                 shoes.map((a, i) => {
@@ -55,11 +61,12 @@ function App() {
                   )
                 })
               }
-
             </div>
 
+            </lestContext.Provider>
+
             <button className="btn btn-primary" onClick={() => {
-              axios.get('https://codingapple1.github.io/shop/data2.json')
+              axios.get('https://codingapple1.github.io/shop/data' + 2 + '.json')
                 .then((result) => {
                   console.log(result.data)
                   setShoes([...shoes, ...result.data])
@@ -73,7 +80,7 @@ function App() {
         </Route>
 
         <Route path="/detail/:id">
-          <Detail shoes={shoes} />
+          <Detail shoes={shoes} lest={lest}/>
         </Route>
 
         <Route path="/:id"> 

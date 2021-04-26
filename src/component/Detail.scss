@@ -37,4 +37,13 @@
             border: 1px solid #6b6767;
         }
     }
+
+    .effect-enter {
+        opacity: 0;
+    }
+
+    .effect-evter-active {
+        opacity: 1;
+        transition: all 500ms;
+    }
 }
