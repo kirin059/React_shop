@@ -82,13 +82,13 @@ function TapContent(props) {
   });
 
   if (props.push === 0) {
-   return <div> 0번째 내용입니다 </div>
+   return <div style={{paddingTop: '30px'}}> This shoes has a name called White and Black </div>
   }
   else if(props.push === 1) {
-    return <div> 1번째 내용입니다 </div>
+    return <div style={{paddingTop: '30px'}}> There are 4 colors : black, red, yellow, green </div>
   }
   else if(props.push === 2) {
-    return <div> 2번째 내용입니다 </div>
+    return <div style={{paddingTop: '30px'}}> If you are join our website, you can gain 2 coupones for sales. </div>
   }
 }
 
