@@ -64,7 +64,7 @@ const Detail = (props) => {
                     <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(1)}}>Option-2</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(2)}}>Option-3</Nav.Link>
+                    <Nav.Link eventKey="dink-2" onClick={()=>{ setSwitchs(false); setPush(2)}}>Option-3</Nav.Link>
                   </Nav.Item>
                 </Nav>
 
