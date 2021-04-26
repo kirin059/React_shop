@@ -10,7 +10,7 @@ const Detail = (props) => {
     let [alert, setAlert] = useState(true)
 
     let [push, setPush] = useState(0)
-    let [switch, setSwitch] = useState(false)
+    let [switchs, setSwitchs] = useState(false)
 
     let history = useHistory;
     let { id } = useParams();
@@ -58,24 +58,29 @@ const Detail = (props) => {
 
                 <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
                   <Nav.Item>
-                    <Nav.Link eventKey="link-0" onClick={()=>{setPush(0)}}>Active</Nav.Link>
+                    <Nav.Link eventKey="link-0" onClick={()=>{ setSwitchs(false); setPush(0)}}>Active</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="dink-1" onClick={()=>{setPush(1)}}>Option-2</Nav.Link>
+                    <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(1)}}>Option-2</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="dink-1" onClick={()=>{setPush(2)}}>Option-3</Nav.Link>
+                    <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(2)}}>Option-3</Nav.Link>
                   </Nav.Item>
                 </Nav>
 
-                <CSSTransition in={switch} classNames="effect" timeout={500}>  
-                  <TapContent push={push} />
+                <CSSTransition in={switchs} classNames="effect" timeout={500}>  
+                  <TapContent push={push} setSwitchs={setSwitchs}/>
                 </CSSTransition>
             </div>
     );
 };
 
 function TapContent(props) {
+
+  useEffect( ()=> {
+    props.setSwitchs(true)
+  });
+
   if (props.push === 0) {
    return <div> 0번째 내용입니다 </div>
   }
