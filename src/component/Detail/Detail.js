@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Nav } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group'
-import Info from '../Product/Info';
+import Info from '../Info/Info';
 import './Detail.scss';
 
 

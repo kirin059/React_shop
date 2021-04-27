@@ -6,6 +6,7 @@ import axios from 'axios';
 import Data from './data.js';
 import Product from './component/Product/Product';
 import Detail from './component/Detail/Detail';
+import Cart from './component/Cart/Cart';
 import './App.scss';
 
 export let lestContext = React.createContext();
@@ -25,6 +26,7 @@ function App() {
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/detail/0">Detail</Nav.Link>
+            <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -81,6 +83,10 @@ function App() {
 
         <Route path="/detail/:id">
           <Detail shoes={shoes} lest={lest}/>
+        </Route>
+
+        <Route path="/cart">
+          <Cart />
         </Route>
 
         <Route path="/:id"> 
