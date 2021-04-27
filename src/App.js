@@ -4,8 +4,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import Data from './data.js';
-import Product from './component/Product';
-import Detail from './component/Detail';
+import Product from './component/Product/Product';
+import Detail from './component/Detail/Detail';
 import './App.scss';
 
 export let lestContext = React.createContext();

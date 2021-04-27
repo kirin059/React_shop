@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {lestContext} from '../App'
+import {lestContext} from '../../App'
 const Product = (props) => {
 
     let lest = useContext(lestContext);
