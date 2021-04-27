@@ -2,6 +2,8 @@ import React from 'react';
 import { Table  } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
+import './Cart.scss';
+
 const Cart = (props) => {
     return (
         <div>
@@ -11,34 +13,26 @@ const Cart = (props) => {
                     <th>#</th>
                     <th>상품명</th>
                     <th>수량</th>
-                    <th>변경</th>
+                    <th>수량 변경</th>
                 </tr>
                 </thead>
                 <tbody>
-                {/* <tr>
-                    <td>1</td>
-                    <td> { props.state[0].name } </td>
-                    <td> { props.state[0].quan } </td>
-                    <td>Table cell</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td> { props.state[1].name } </td>
-                    <td> { props.state[1].quan } </td>
-                    <td>Table cell</td>
-                </tr> */}
-{
-    props.state.map( (a, i) => {
-        return (
-            <tr>
-                <td>{i+1}</td>
-                <td> { props.state[i].name } </td>
-                <td> { props.state[i].quan } </td>
-                <td>Table cell</td>
-            </tr>
-        )
-    } )
-}
+
+                {
+                    props.state.map( (a, i) => {
+                        return (
+                            <tr key={i}>
+                                <td>{i+1}</td>
+                                <td> { props.state[i].name } </td>
+                                <td> { props.state[i].quan } </td>
+                                <td>
+                                    <button type="button" class="btn btn-warning" style={{paddigRight: '5px'}} onClick={() => { props.dispatch({type: 'add'}) }}>+</button>
+                                    <button type="button" class="btn btn-warning" onClick={() => { props.dispatch({type: 'substract'}) }}>-</button>
+                                </td>
+                            </tr>
+                        )
+                    } )
+                }
 
                 </tbody>
             </Table>

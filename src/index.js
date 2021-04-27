@@ -7,14 +7,35 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-let store = createStore( () => { 
-  return [
-    {id: 0, name: 'White and Black', quan: 2},
-    {id: 1, name: 'Red Knit', quan: 3},
-    {id: 2, name: 'Born in the States', quan: 1},
-  ] 
-});
 
+let defaultState = [
+  {id: 0, name: 'White and Black', quan: 2},
+  {id: 1, name: 'Red Knit', quan: 3},
+  {id: 2, name: 'Born in the States', quan: 1},
+] 
+
+function reducer(state=defaultState, action) {
+  if( action.type === 'add') {
+      
+    let copyState = [...state];
+    copyState[0].quan++
+
+    return copyState
+  }
+  else if( action.type === 'substract' ) {
+
+    let copyState = [...state];
+
+    copyState[0].quan--
+    return copyState
+
+  }
+  else {
+    return state
+  }
+}
+
+let store = createStore( reducer );
 
 ReactDOM.render(
   <BrowserRouter>
