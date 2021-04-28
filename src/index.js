@@ -16,7 +16,14 @@ let initState = [
 ] 
 
 function reducer(state=initState, action) {
-  if( action.type === 'add') {
+  if ( action.type === '항목추가') {
+
+    let copyState = [...state];
+    copyState.push(action.payload);
+
+    return copyState
+  }
+  else if( action.type === 'add') {
       
     let copyState = [...state];
     copyState[0].quan++

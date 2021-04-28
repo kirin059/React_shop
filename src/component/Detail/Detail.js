@@ -4,11 +4,11 @@ import { Nav } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group'
 import Info from '../Info/Info';
 import './Detail.scss';
+import { connect } from 'react-redux';
 
 
 const Detail = (props) => {
     let [alert, setAlert] = useState(true)
-
     let [push, setPush] = useState(0)
     let [switchs, setSwitchs] = useState(false)
 
@@ -24,11 +24,6 @@ const Detail = (props) => {
         return productId.id == id
     })
 
-    function handleCount() {
-        let newArr = [...props.lest];
-        newArr[0] = 9;
-        props.setLest(newArr)
-    }
 
     return (
             <div className="container">
@@ -51,7 +46,11 @@ const Detail = (props) => {
                         <p>{productsId.price}0원</p>
                         <Info  lest={props.lest}/>
 
-                        <button className="btn btn-danger order" onClick={() => { props.setLest([9, 10, 11]) }}> 주문하기</button>
+                        <button className="btn btn-danger order" onClick={() => { 
+                         //props.setLest([9, 10, 11]);  
+                          props.dispatch( {type: '항목추가', payload: {id: 4, name: 'new shoes', quan:1} });
+                          //history.push('./cart');
+                          }}> 주문하기</button>
                         <button className="btn btn-danger back" onClick={() => { history.push('/') }}>Back</button>
                     </div>
                 </div>
@@ -92,4 +91,12 @@ function TapContent(props) {
   }
 }
 
-export default Detail;
+function cartInfo(state) {
+  return {
+      state: state.reducer,
+      alertState: state.reducer2
+  }
+};
+
+export default connect(cartInfo) (Detail)
+

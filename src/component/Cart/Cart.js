@@ -26,7 +26,7 @@ const Cart = (props) => {
                                 <td> { props.state[i].name } </td>
                                 <td> { props.state[i].quan } </td>
                                 <td>
-                                    <button class="plusBtn btn" style={{paddigRight: '5px'}} onClick={() => { props.dispatch({type: 'add'}) }}>+</button>
+                                    <button class="btn" onClick={() => { props.dispatch({type: 'add'}) }}>+</button>
                                     <button class="minusBtn btn" onClick={() => { props.dispatch({type: 'substract'}) }}>-</button>
                                 </td>
                             </tr>
