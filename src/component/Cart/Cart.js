@@ -22,7 +22,7 @@ const Cart = (props) => {
                     props.state.map( (a, i) => {
                         return (
                             <tr key={i}>
-                                <td>{i+1}</td>
+                                <td>{a.id}</td>
                                 <td> { props.state[i].name } </td>
                                 <td> { props.state[i].quan } </td>
                                 <td>

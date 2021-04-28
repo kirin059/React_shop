@@ -10,24 +10,24 @@ import { combineReducers, createStore } from 'redux';
 
 // 1번째 reducer
 let initState = [
-  {id: 0, name: 'White and Black', quan: 0},
-  {id: 1, name: 'Red Knit', quan: 0},
-  {id: 2, name: 'Born in the States', quan: 0},
+  {id: 0, name: 'Nike shoes', quan: 0}
 ] 
 
 function reducer(state=initState, action) {
-  if ( action.type === '항목추가') {
+  if ( action.type === 'addList') {
 
-    let copyState = [...state];
-    copyState.push(action.payload);
-
-    // if (id가 같은 상품이 이미 있으면) {
-    //   새로 항목 추가하지 말고
-    //   수량만 +1
-    //   return
-    // }
-
-    return copyState
+    let found = state.findIndex((a)=>{return a.id === action.payload.id})
+      if(found >= 0) {
+        let copyState = [...state];
+        copyState[found].quan++
+        return copyState
+     } 
+     else {
+        let copyState = [...state];
+         copyState.push(action.payload);
+  
+      return copyState
+    }
   }
   else if( action.type === 'add') {
       
