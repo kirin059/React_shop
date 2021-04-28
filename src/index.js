@@ -10,9 +10,9 @@ import { combineReducers, createStore } from 'redux';
 
 // 1번째 reducer
 let initState = [
-  {id: 0, name: 'White and Black', quan: 2},
-  {id: 1, name: 'Red Knit', quan: 3},
-  {id: 2, name: 'Born in the States', quan: 1},
+  {id: 0, name: 'White and Black', quan: 0},
+  {id: 1, name: 'Red Knit', quan: 0},
+  {id: 2, name: 'Born in the States', quan: 0},
 ] 
 
 function reducer(state=initState, action) {
@@ -32,7 +32,7 @@ function reducer(state=initState, action) {
   else if( action.type === 'add') {
       
     let copyState = [...state];
-    copyState[0].quan++
+    copyState[action.payload].quan++
 
     return copyState
   }
@@ -40,7 +40,7 @@ function reducer(state=initState, action) {
 
     let copyState = [...state];
 
-    copyState[0].quan--
+    copyState[action.payload].quan--
     return copyState
 
   }

@@ -51,6 +51,7 @@ const Detail = (props) => {
                           props.dispatch( {type: '항목추가', payload: {id: 4, name: 'new shoes', quan:1} });
                           history.push('/cart');
                           }}> 주문하기</button>
+                          
                         <button className="btn btn-danger back" onClick={() => { history.push('/') }}>Back</button>
                     </div>
                 </div>
