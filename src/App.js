@@ -14,7 +14,7 @@ export let lestContext = React.createContext();
 function App() {
 
   let [shoes, setShoes] = useState(Data);
-  let [lest, setLest] = useState([10, 11, 12])
+  let [lest, setLest] = useState([10, 11, 12, 15, 2, 4, 6])
 
   return (
     <div className="App">

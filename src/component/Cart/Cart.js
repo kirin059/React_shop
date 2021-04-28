@@ -6,7 +6,7 @@ import './Cart.scss';
 
 const Cart = (props) => {
     return (
-        <div>
+        <div className="Cart">
             <Table responsive="sm">
                 <thead>
                 <tr>
@@ -26,23 +26,32 @@ const Cart = (props) => {
                                 <td> { props.state[i].name } </td>
                                 <td> { props.state[i].quan } </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning" style={{paddigRight: '5px'}} onClick={() => { props.dispatch({type: 'add'}) }}>+</button>
-                                    <button type="button" class="btn btn-warning" onClick={() => { props.dispatch({type: 'substract'}) }}>-</button>
+                                    <button class="plusBtn btn" style={{paddigRight: '5px'}} onClick={() => { props.dispatch({type: 'add'}) }}>+</button>
+                                    <button class="minusBtn btn" onClick={() => { props.dispatch({type: 'substract'}) }}>-</button>
                                 </td>
                             </tr>
                         )
                     } )
                 }
-
                 </tbody>
             </Table>
+
+            {
+                props.alertState === true
+                ? (<div className="my-alert">
+                    <p>지금 구매하시면 신규할인 20%</p>
+                    <button onClick={() => {props.dispatch( {type: 'close'} )}}>닫기</button>
+                   </div>)
+                : null
+            }
         </div>
     );
 };
 
 function cartInfo(state) {
     return {
-        state: state
+        state: state.reducer,
+        alertState: state.reducer2
     }
 };
 

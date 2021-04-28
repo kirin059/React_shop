@@ -58,10 +58,10 @@ const Detail = (props) => {
 
                 <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
                   <Nav.Item>
-                    <Nav.Link eventKey="link-0" onClick={()=>{ setSwitchs(false); setPush(0)}}>Active</Nav.Link>
+                    <Nav.Link eventKey="link-0" onClick={()=>{ setSwitchs(false); setPush(0)}}>상품 정보</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(1)}}>Option-2</Nav.Link>
+                    <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(1)}}>배송 문의</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="dink-2" onClick={()=>{ setSwitchs(false); setPush(2)}}>Option-3</Nav.Link>
