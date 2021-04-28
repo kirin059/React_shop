@@ -21,6 +21,12 @@ function reducer(state=initState, action) {
     let copyState = [...state];
     copyState.push(action.payload);
 
+    // if (id가 같은 상품이 이미 있으면) {
+    //   새로 항목 추가하지 말고
+    //   수량만 +1
+    //   return
+    // }
+
     return copyState
   }
   else if( action.type === 'add') {
