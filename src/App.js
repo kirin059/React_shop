@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
 
-      <Navbar bg="light" expand="lg" >
+      <Navbar bg="light" expand="lg" id="navContainer">
         <Navbar.Brand className="brand"><Link to="/" className="Link">Shoe Shop 👟</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -27,12 +27,9 @@ function App() {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/detail/0">Detail</Nav.Link>
             <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            <NavDropdown title="My Page" id="basic-nav-dropdown">
+              <NavDropdown.Item> <Link to="/login" className="Link">Log In </Link></NavDropdown.Item>
+              <NavDropdown.Item><Link to="/" className="Link"> Sign up </Link></NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -80,7 +77,9 @@ function App() {
         </Route>
 
         <Route path="/detail/:id">
-          <Detail shoes={shoes} lest={lest}/>
+          <lestContext.Provider value={lest}>
+            <Detail shoes={shoes} lest={lest} setLest={setLest} />
+          </lestContext.Provider>
         </Route>
 
         <Route path="/cart">
@@ -91,7 +90,7 @@ function App() {
           <div></div>
         </Route>
 
-      </Switch >
+      </Switch>
     </div >
   );
 }

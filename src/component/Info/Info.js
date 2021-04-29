@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {lestContext} from '../../App'
 
-const Info = (props) => {
+const Info = () => {
+
+    let lest = useContext(lestContext);
+
     return (
         <div>
-            <p>재고: {props.lest[0]}</p>
+            <p>재고: {lest[0]}</p>
         </div>
     );
 };

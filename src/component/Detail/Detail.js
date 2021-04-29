@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Nav } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group'
@@ -39,16 +39,16 @@ const Detail = (props) => {
 
                 <div className="row">
                     <div className="col-md-6">
-                        <img src={'https://codingapple1.github.io/shop/shoes1.jpg'} width="100%" />
+                        <img src={'https://codingapple1.github.io/shop/shoes' + (productsId.id+1) + '.jpg'} width="100%" />
                     </div>
                     <div className="col-md-6 mt-4">
                         <h4 className="pt-5"> {productsId.title} </h4>
                         <p> {productsId.content} </p>
-                        <p>{productsId.price}0원</p>
-                        <Info  lest={props.lest}/>
+                        <p> {productsId.price}0원 </p>
+                        <Info />
 
                         <button className="btn btn-danger order" onClick={() => { 
-                          //props.setLest([9, 10, 11]);  
+                          props.setLest([9, 10, 11, 12]);  
                           props.dispatch( {type: 'addList', payload: {id: productsId.id, name: productsId.title, quan:1} });
                           history.push('/cart');
                           }}> 주문하기</button>
@@ -65,7 +65,7 @@ const Detail = (props) => {
                     <Nav.Link eventKey="dink-1" onClick={()=>{ setSwitchs(false); setPush(1)}}>배송 문의</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="dink-2" onClick={()=>{ setSwitchs(false); setPush(2)}}>Option-3</Nav.Link>
+                    <Nav.Link eventKey="dink-2" onClick={()=>{ setSwitchs(false); setPush(2)}}>상품평</Nav.Link>
                   </Nav.Item>
                 </Nav>
 
