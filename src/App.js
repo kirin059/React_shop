@@ -7,6 +7,7 @@ import Data from './data.js';
 import Product from './component/Product/Product';
 import Detail from './component/Detail/Detail';
 import Cart from './component/Cart/Cart';
+import Login from './component/Login/Login';
 import './App.scss';
 
 export let lestContext = React.createContext();
@@ -84,6 +85,10 @@ function App() {
 
         <Route path="/cart">
           <Cart />
+        </Route>
+
+        <Route path="/login">
+          <Login />
         </Route>
 
         <Route path="/:id"> 
