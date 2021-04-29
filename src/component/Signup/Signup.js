@@ -16,10 +16,11 @@ const Signup = () => {
                 <input placeholder="생년월일(8자리 숫자로 입력)" />
                 <input placeholder="성별" />
             </div>
-            <button className="loginBtn">Sign Up</button>
+            <button>Sign Up</button>
 
             <div className="footer">
-                <p>개인정보 동의</p>
+                <p><strong>개인정보 이용약관</strong> 전체동의</p>
+                <input type="checkbox" />
             </div>
         </div>
     );
