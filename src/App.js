@@ -8,6 +8,8 @@ import Product from './component/Product/Product';
 import Detail from './component/Detail/Detail';
 import Cart from './component/Cart/Cart';
 import Login from './component/Login/Login';
+import Signup from './component/Signup/Signup'
+
 import './App.scss';
 
 export let lestContext = React.createContext();
@@ -89,6 +91,10 @@ function App() {
 
         <Route path="/login">
           <Login />
+        </Route>
+
+        <Route path="/signup">
+          <Signup />
         </Route>
 
         <Route path="/:id"> 
