@@ -20,7 +20,7 @@ function App() {
     <div className="App">
 
       <Navbar bg="light" expand="lg" >
-        <Navbar.Brand href="#home" className="brand">Shoe Shop 🩰</Navbar.Brand>
+        <Navbar.Brand className="brand"><Link to="/" className="Link">Shoe Shop 👟</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -54,17 +54,15 @@ function App() {
           <div className="container">
 
             <lestContext.Provider value={lest}>
-
-            <div className="row">  
-              {
-                shoes.map((a, i) => {
-                  return (
-                    <Product shoes={shoes[i]} i={i} key={i} />
-                  )
-                })
-              }
-            </div>
-
+              <div className="row">  
+                {
+                  shoes.map((a, i) => {
+                    return (
+                      <Product shoes={shoes[i]} i={i} key={i} />
+                    )
+                  })
+                }
+              </div>
             </lestContext.Provider>
 
             <button className="btn btn-primary" onClick={() => {

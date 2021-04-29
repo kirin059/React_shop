@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { Nav } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group'
+import { connect } from 'react-redux';
+
 import Info from '../Info/Info';
 import './Detail.scss';
-import { connect } from 'react-redux';
 
 
 const Detail = (props) => {
