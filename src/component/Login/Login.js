@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
@@ -12,7 +13,12 @@ const Login = () => {
                 <input placeholder="PW" />
                 <input placeholder="PW확인" />
             </div>
-            <button>LOG IN</button>
+            <button className="loginBtn">LOG IN</button>
+
+            <div className="footer">
+                <p>앗🙄! 아직 <strong>Shoes Shop</strong> 회원이 아니십니까?</p>
+                <p><Link to="/signup">회원 가입 하러 가기</Link></p>
+            </div>
         </div>
     );
 };

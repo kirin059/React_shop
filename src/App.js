@@ -30,7 +30,7 @@ function App() {
             <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>
             <NavDropdown title="My Page" id="basic-nav-dropdown">
               <NavDropdown.Item> <Link to="/login" className="Link">Log In </Link></NavDropdown.Item>
-              <NavDropdown.Item><Link to="/" className="Link"> Sign up </Link></NavDropdown.Item>
+              <NavDropdown.Item><Link to="/signup" className="Link"> Sign up </Link></NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
